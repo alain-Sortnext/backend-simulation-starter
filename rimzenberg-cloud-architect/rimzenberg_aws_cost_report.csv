@@ -1,0 +1,20 @@
+month,year,ec2_cost_gbp,rds_cost_gbp,s3_cost_gbp,data_transfer_gbp,other_services_gbp,total_monthly_gbp,ec2_avg_cpu_pct,rds_avg_connections,active_instances,idle_instances_est,order_processing_compute_gbp,notes
+Jan,2024,3200,1800,280,420,1100,6800,68,45,4,2,1100,Baseline after migration. Costs stable.
+Feb,2024,3350,1850,295,440,1150,7085,71,48,4,2,1150,Slight uptick — two incidents this month
+Mar,2024,3500,1900,310,460,1200,7370,69,52,4,2,1200,
+Apr,2024,3750,2050,320,490,1250,7860,74,58,5,2,1280,Easter promotion drove EC2 costs up
+May,2024,4100,2200,340,530,1300,8470,77,67,5,3,1390,Promo campaign — RDS connections climbing
+Jun,2024,4400,2350,360,560,1400,9070,75,69,5,3,1450,
+Jul,2024,5200,2600,390,640,1550,10380,80,78,6,3,1680,US traffic spike (INC-013) drove up data transfer
+Aug,2024,5800,2800,410,700,1650,11360,82,81,6,3,1890,Back-to-school promo
+Sep,2024,6100,2950,430,730,1700,11910,79,83,7,4,1980,Autumn spike
+Oct,2024,7200,3200,460,810,1800,13470,83,88,8,4,2210,Rapid cost growth — Finance flagging
+Nov,2024,9800,3900,510,980,1900,17090,87,94,9,4,2880,Pre-BF promo + BLACK FRIDAY OUTAGE
+Dec,2024,10200,4100,540,1020,1950,17810,85,91,9,5,3020,Christmas + Cyber Monday tail
+Jan,2025,9400,3800,500,940,1880,16520,N/A,87,8,5,2950,Dev on notice. Some cleanup started. CPU data missing Jan.
+Feb,2025,10100,4050,520,980,1950,17600,88,95,9,5,3080,Valentine promo
+Mar,2025,11500,4400,560,1100,2100,19660,91,99,10,6,3600,NEW: Lambda POC spun up — costs not yet reflected correctly
+Apr,2025,12200,4600,580,1150,2200,20730,89,98,10,6,3820,CFN stack drift detected — two stacks not in sync
+May,2025,12800,4750,610,1190,2350,21700,92,100,11,6,4060,RDS connections at 100% twice this month
+Jun,2025,12600,4700,600,1180,2320,21400,90,98,11,6,4100,Most recent complete month
+Jun,2025,12600,4700,600,1180,2320,21400,90,98,11,6,4100,DUPLICATE ROW — data pipeline double-exported June
