@@ -1,0 +1,31 @@
+incident_id,date,time_utc,severity,duration_mins,service_affected,az_affected,root_cause_code,customer_impact,resolved_by,est_revenue_loss_gbp,notes,db_conn_pool_pct,traffic_spike_pct,sg_health_check_blocked
+INC-001,2024-01-08,09:14,P2,38,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,High,Dev Okonkwo,4200,Single AZ only — no failover available,45,180,FALSE
+INC-002,2024-01-22,14:02,P2,22,RDS-PROD,eu-west-2a,DB_CONN_EXHAUSTION,Medium,Dev Okonkwo,1100,Connection pool hit limit — RDS public subnet,98,12,FALSE
+INC-003,2024-02-03,11:30,P1,14,ALB,eu-west-2a,MISCONFIGURED_SG,Low,Dev Okonkwo,800,SG blocked ALB health checks — intermittent 503s,34,8,TRUE
+INC-004,2024-02-19,08:45,P2,55,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,High,Dev Okonkwo,6100,Same single-AZ issue. Priya escalated to Board.,52,210,FALSE
+INC-005,2024-03-07,16:20,P2,19,RDS-PROD,eu-west-2a,DB_CONN_EXHAUSTION,Medium,Dev Okonkwo,950,Repeat connection pool issue. NOT documented.,96,9,FALSE
+INC-006,2024-03-14,13:05,P1,8,EC2-WEB,eu-west-2a,MISCONFIGURED_SG,Low,Dev Okonkwo,420,Health check block again — same SG rule as INC-003,29,5,TRUE
+INC-007,2024-04-02,10:15,P2,44,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,High,Dev Okonkwo,4900,Easter weekend spike. Auto Scaling not configured.,61,195,FALSE
+INC-008,2024-04-18,09:00,P2,12,S3-STATIC,N/A,BUCKET_POLICY_ERROR,Low,Dev Okonkwo,600,Public read disabled by mistake — static assets 403,N/A,3,FALSE
+INC-009,2024-05-09,15:40,P2,31,RDS-PROD,eu-west-2a,DB_CONN_EXHAUSTION,High,Dev Okonkwo,3400,Pool exhaustion during promo campaign. Third time.,99,45,FALSE
+INC-010,2024-05-28,11:10,P1,9,EC2-WEB,eu-west-2a,MISCONFIGURED_SG,Low,Dev Okonkwo,480,SG health check block — STILL not fixed. See INC-003.,22,4,TRUE
+INC-011,2024-06-06,08:30,P2,27,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,Medium,Dev Okonkwo,3000,Summer promotion. Still single AZ.,48,160,FALSE
+INC-012,2024-06-20,14:00,P2,16,RDS-PROD,eu-west-2a,DB_CONN_EXHAUSTION,Medium,Dev Okonkwo,1700,Connection pool again. RDS public — see NOTES.,97,11,FALSE
+INC-013,2024-07-04,09:55,P1,21,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,High,Dev Okonkwo,2300,Independence Day US traffic spike hit UK instance.,66,230,FALSE
+INC-014,2024-07-15,15:30,P2,18,S3-STATIC,N/A,BUCKET_POLICY_ERROR,Low,,700,Bucket policy reset again — same error as INC-008.,N/A,2,FALSE
+INC-015,2024-07-29,10:45,P2,42,RDS-PROD,eu-west-2a,DB_CONN_EXHAUSTION,High,Dev Okonkwo,4700,Pool at 99%. RDS in public subnet — NO MULTI-AZ.,99,38,FALSE
+INC-016,2024-08-12,08:00,P2,33,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,High,Dev Okonkwo,3700,Back-to-school promo spike. Auto Scaling absent.,57,178,FALSE
+INC-017,2024-08-26,13:20,P1,11,EC2-WEB,eu-west-2a,MISCONFIGURED_SG,Low,Dev Okonkwo,590,SG health check block — fourth occurrence.,28,6,TRUE
+INC-018,2024-09-03,09:30,P2,28,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,Medium,Dev Okonkwo,3100,Autumn restock spike.,55,155,FALSE
+INC-019,2024-09-18,14:10,P2,22,RDS-PROD,eu-west-2a,DB_CONN_EXHAUSTION,Medium,Dev Okonkwo,2400,Pool at 97%. Farah asking why site slows at busy times,97,14,FALSE
+INC-020,2024-10-07,10:00,P2,19,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,Medium,Dev Okonkwo,2100,October promo. Pattern repeating every month.,44,140,FALSE
+INC-021,2024-10-21,16:00,P2,14,S3-STATIC,N/A,BUCKET_POLICY_ERROR,Low,,650,Third S3 policy error. Same misconfiguration.,N/A,1,FALSE
+INC-022,2024-11-04,09:00,P2,36,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,High,Dev Okonkwo,4000,Pre-Black Friday promo. Site struggling.,62,190,FALSE
+INC-023,2024-11-11,13:45,P1,9,EC2-WEB,eu-west-2a,MISCONFIGURED_SG,Low,Dev Okonkwo,470,Health check block AGAIN — same SG rule since Feb,25,4,TRUE
+INC-024,2024-11-29,00:01,P1,252,EC2-WEB+RDS+ALB,eu-west-2a,TRAFFIC_SPIKE+DB_CONN_EXHAUSTION+MISCONFIGURED_SG,Critical,Dev Okonkwo + Priya,180000,"BLACK FRIDAY OUTAGE. All three root causes compounded: traffic spike overwhelmed single-AZ EC2 (no ASG), RDS connection pool hit 100% (public subnet, no read replica), SG blocked ALB health checks so failover never triggered. See post-incident review.",100,380,TRUE
+INC-025,2024-12-09,10:20,P2,24,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,Medium,Dev Okonkwo,2700,Post-BF Cyber Monday tail. Still not fixed.,50,145,FALSE
+INC-026,2024-12-16,15:00,P2,17,RDS-PROD,eu-west-2a,DB_CONN_EXHAUSTION,Medium,Dev Okonkwo,1900,Christmas promo. RDS pool hit 96%.,96,16,FALSE
+INC-027,2025-01-06,09:00,P2,29,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,Medium,Farah Hussain,3200,January sale. Dev handed notice. Farah had to help.,53,162,FALSE
+INC-028,2025-01-20,14:30,P1,13,EC2-WEB,eu-west-2a,MISCONFIGURED_SG,Low,,680,SG health check block. Dev on notice period — unresolved.,26,5,TRUE
+INC-029,2025-02-03,10:00,P2,21,RDS-PROD,eu-west-2a,DB_CONN_EXHAUSTION,Medium,,2300,Pool at 98%. No one documenting root causes now.,98,10,FALSE
+INC-030,2025-02-17,08:00,P2,44,EC2-WEB,eu-west-2a,TRAFFIC_SPIKE,High,,4900,Valentine's promo. Highest non-BF spike since April.,70,198,FALSE
